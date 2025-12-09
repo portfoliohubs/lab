@@ -4,72 +4,188 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ .Site.Title }}</title>
-    <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Rajdhani:wght@600;700&display=swap');
+
+        :root {
+            --primary: #0f172a; /* كحلي غامق */
+            --accent: #3b82f6;  /* أزرق طبي */
+            --silver: #e2e8f0;  /* فضي */
+            --dark: #020617;    /* أسود كحلي */
+            --text: #f8fafc;    /* أبيض */
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            font-family: 'Cairo', sans-serif; 
+            background-color: var(--dark); 
+            color: var(--text); 
+            direction: rtl; 
+            line-height: 1.6;
+        }
+
+        /* Utilities */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        a { text-decoration: none; transition: 0.3s; }
+        .btn { 
+            display: inline-block; 
+            padding: 12px 30px; 
+            background: var(--accent); 
+            color: white; 
+            border-radius: 5px; 
+            font-weight: bold; 
+            border: 1px solid var(--accent);
+        }
+        .btn:hover { background: transparent; color: var(--accent); }
+        .section { padding: 80px 0; border-bottom: 1px solid #1e293b; }
+        .text-accent { color: var(--accent); }
+        .text-center { text-align: center; }
+
+        /* Header */
+        header { 
+            padding: 20px 0; 
+            background: rgba(2,6,23,0.95); 
+            position: sticky; top: 0; z-index: 1000;
+            border-bottom: 1px solid #1e293b;
+        }
+        .nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { 
+            font-family: 'Rajdhani', sans-serif; 
+            font-size: 1.8rem; 
+            font-weight: 700; 
+            letter-spacing: 2px; 
+            color: white; 
+            display: flex; align-items: center; gap: 10px;
+        }
+
+        /* Hero */
+        .hero { 
+            height: 85vh; 
+            display: flex; align-items: center; justify-content: center; text-align: center; 
+            background: radial-gradient(circle at center, #1e293b 0%, #020617 100%);
+            padding-top: 60px;
+        }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 20px; line-height: 1.2; }
+        .hero p { color: #94a3b8; font-size: 1.2rem; max-width: 600px; margin: 0 auto 30px; }
+
+        /* Services Grid */
+        .grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 30px; 
+            margin-top: 50px; 
+        }
+        .card { 
+            background: #1e293b; 
+            padding: 30px; 
+            border-radius: 12px; 
+            border: 1px solid #334155; 
+            transition: transform 0.3s;
+        }
+        .card:hover { transform: translateY(-5px); border-color: var(--accent); }
+        .card i { color: var(--accent); font-size: 2.5rem; margin-bottom: 20px; display: block; }
+        .card h3 { color: white; margin-bottom: 15px; font-size: 1.4rem; }
+        .card ul { list-style: none; padding: 0; }
+        .card li { 
+            margin-bottom: 10px; 
+            border-bottom: 1px solid #334155; 
+            padding-bottom: 10px; 
+            color: #cbd5e1; 
+            font-size: 0.95rem;
+        }
+        .card li:last-child { border-bottom: none; }
+
+        /* Footer */
+        footer { padding: 40px 0; text-align: center; color: #64748b; font-size: 0.9rem; }
+
+        /* Floating Button */
+        .float-wa { 
+            position: fixed; bottom: 30px; right: 30px; 
+            background: #25D366; 
+            width: 60px; height: 60px; 
+            border-radius: 50%; 
+            display: flex; align-items: center; justify-content: center; 
+            font-size: 30px; color: white; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3); 
+            z-index: 2000;
+        }
+        .float-wa:hover { transform: scale(1.1); }
+    </style>
 </head>
 <body>
 
     <header>
         <div class="container nav">
-            <a href="#" class="logo">PRO-TECH <span class="text-accent">LAB</span></a>
+            <a href="#" class="logo">
+                <i class="fas fa-cubes text-accent"></i> 
+                <span>PRO-TECH</span>
+            </a>
             <a href="https://wa.me/{{ .Site.Params.whatsapp }}" class="btn">تواصل معنا</a>
         </div>
     </header>
 
     <section class="hero">
         <div class="container">
-            <p class="text-accent" style="font-weight: bold; letter-spacing: 1px;">DIGITAL DENTAL SOLUTIONS</p>
-            <h1>شريكك الاستراتيجي في<br>طب الأسنان الرقمي</h1>
-            <p style="color: #94a3b8; font-size: 1.2rem; max-width: 600px; margin: 0 auto 30px;">
-                نقدم أدق التركيبات الثابتة والمتحركة باستخدام تقنيات CAD/CAM والطباعة ثلاثية الأبعاد.
+            <p class="text-accent" style="font-weight: bold; letter-spacing: 2px;">DIGITAL DENTAL SOLUTIONS</p>
+            <h1>الدقة المتناهية في<br>كل ابتسامة</h1>
+            <p>
+                نقدم لأطباء الأسنان حلولاً رقمية متكاملة (CAD/CAM) وتركيبات زيركون وإيماكس بأعلى معايير الجودة العالمية.
             </p>
-            <a href="#services" class="btn">استكشف خدماتنا</a>
+            <a href="#services" class="btn">استكشف خدمات المعمل</a>
         </div>
     </section>
 
     <section id="services" class="section">
         <div class="container">
-            <h2 style="font-size: 2.5rem; text-align: center;">خدمات المعمل</h2>
+            <div class="text-center">
+                <h2 style="font-size: 2.5rem;">تخصصات المعمل</h2>
+                <p style="color: #94a3b8;">حلول تقنية متقدمة تلبي كافة احتياجات العيادة</p>
+            </div>
+            
             <div class="grid">
                 <div class="card">
-                    <i class="fas fa-tooth fa-2x text-accent" style="margin-bottom: 20px;"></i>
+                    <i class="fas fa-tooth"></i>
                     <h3>التركيبات الثابتة</h3>
                     <ul>
-                        <li>Zirconia (Full / Layered)</li>
-                        <li>E-max (Press / CAD)</li>
+                        <li>Zirconia (Full Anatomy / Layered)</li>
+                        <li>IPS e.max Press & CAD</li>
+                        <li>Veneers (Hollywood Smile)</li>
                         <li>PFM (Porcelain Fused to Metal)</li>
-                        <li>Veneers</li>
                     </ul>
                 </div>
                 <div class="card">
-                    <i class="fas fa-cubes fa-2x text-accent" style="margin-bottom: 20px;"></i>
-                    <h3>التركيبات المتحركة</h3>
+                    <i class="fas fa-bony"></i> <h3>التركيبات المتحركة</h3>
                     <ul>
-                        <li>Flexible Dentures</li>
-                        <li>Acrylic Dentures</li>
-                        <li>Chrome Cobalt</li>
-                        <li>Night Guards</li>
+                        <li>Flexible Valplast Dentures</li>
+                        <li>Acrylic Partial/Full Dentures</li>
+                        <li>Chrome Cobalt Frameworks</li>
+                        <li>Thermo-plastic Night Guards</li>
                     </ul>
                 </div>
                 <div class="card">
-                    <i class="fas fa-screw fa-2x text-accent" style="margin-bottom: 20px;"></i>
+                    <i class="fas fa-screw"></i>
                     <h3>زراعة الأسنان</h3>
                     <ul>
-                        <li>Custom Abutments</li>
-                        <li>Surgical Guides</li>
-                        <li>Hybrid Dentures</li>
-                        <li>All-on-4</li>
+                        <li>Custom Titanium/Zirconia Abutments</li>
+                        <li>Screw-Retained Crowns</li>
+                        <li>All-on-4 / All-on-6 Hybrid</li>
+                        <li>Surgical Guides (3D Printed)</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="section" style="text-align: center; border-top: 1px solid #334155;">
-        <p>&copy; 2024 {{ .Site.Title }}. All Rights Reserved.</p>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 {{ .Site.Title }}. All Rights Reserved.</p>
+            <p style="margin-top: 10px;">Cairo, Egypt | {{ .Site.Params.phone }}</p>
+        </div>
     </footer>
 
-    <a href="https://wa.me/{{ .Site.Params.whatsapp }}" class="float-wa" target="_blank">
+    <a href="https://wa.me/{{ .Site.Params.whatsapp }}" class="float-wa" target="_blank" aria-label="WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
