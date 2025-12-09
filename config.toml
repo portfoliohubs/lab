@@ -1,0 +1,9 @@
+baseURL = "https://portfoliohubs.github.io/lab/"
+languageCode = "ar"
+title = "ProTech Dental Lab"
+theme = []
+
+[params]
+  description = "معمل أسنان رقمي متكامل - CAD/CAM & 3D Printing"
+  phone = "+201000000000"
+  whatsapp = "201000000000"
