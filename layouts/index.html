@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Site.Title }}</title>
+    <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="container nav">
+            <a href="#" class="logo">PRO-TECH <span class="text-accent">LAB</span></a>
+            <a href="https://wa.me/{{ .Site.Params.whatsapp }}" class="btn">تواصل معنا</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <p class="text-accent" style="font-weight: bold; letter-spacing: 1px;">DIGITAL DENTAL SOLUTIONS</p>
+            <h1>شريكك الاستراتيجي في<br>طب الأسنان الرقمي</h1>
+            <p style="color: #94a3b8; font-size: 1.2rem; max-width: 600px; margin: 0 auto 30px;">
+                نقدم أدق التركيبات الثابتة والمتحركة باستخدام تقنيات CAD/CAM والطباعة ثلاثية الأبعاد.
+            </p>
+            <a href="#services" class="btn">استكشف خدماتنا</a>
+        </div>
+    </section>
+
+    <section id="services" class="section">
+        <div class="container">
+            <h2 style="font-size: 2.5rem; text-align: center;">خدمات المعمل</h2>
+            <div class="grid">
+                <div class="card">
+                    <i class="fas fa-tooth fa-2x text-accent" style="margin-bottom: 20px;"></i>
+                    <h3>التركيبات الثابتة</h3>
+                    <ul>
+                        <li>Zirconia (Full / Layered)</li>
+                        <li>E-max (Press / CAD)</li>
+                        <li>PFM (Porcelain Fused to Metal)</li>
+                        <li>Veneers</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <i class="fas fa-cubes fa-2x text-accent" style="margin-bottom: 20px;"></i>
+                    <h3>التركيبات المتحركة</h3>
+                    <ul>
+                        <li>Flexible Dentures</li>
+                        <li>Acrylic Dentures</li>
+                        <li>Chrome Cobalt</li>
+                        <li>Night Guards</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <i class="fas fa-screw fa-2x text-accent" style="margin-bottom: 20px;"></i>
+                    <h3>زراعة الأسنان</h3>
+                    <ul>
+                        <li>Custom Abutments</li>
+                        <li>Surgical Guides</li>
+                        <li>Hybrid Dentures</li>
+                        <li>All-on-4</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="section" style="text-align: center; border-top: 1px solid #334155;">
+        <p>&copy; 2024 {{ .Site.Title }}. All Rights Reserved.</p>
+    </footer>
+
+    <a href="https://wa.me/{{ .Site.Params.whatsapp }}" class="float-wa" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+</body>
+</html>
